@@ -1,0 +1,70 @@
+﻿@{
+    string title = "제목입니다.";
+    string titleB = "제목입니다.B";
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    @DateTime.Now.ToShortTimeString()
+    @DateTime.Now.ToShortTimeString()
+    @{
+        <br/>@title
+    }
+    <h2>@titleB</h2>
+
+    @*주석*@
+
+    @{
+        string hour0 = "아침";
+        string hour17 = "저녁";
+        int hour = DateTime.Now.Hour; //오전 10시인 경우
+    }
+    @* if문 공부 *@
+    @if (hour < 12)
+    {
+        <div>@hour0</div>
+        //해당 내용만 표시
+    }
+    else if (hour <= 17)
+    {
+        <div>오후</div>
+    }
+    else
+    {
+        <div>@hour17</div>
+    }
+
+    @{
+        string nation = "korea";
+    }
+    @switch (nation)
+    {
+        case "korea":
+            <h3>안녕하세요.</h3>
+            break;
+        case "usa":
+            <h3>Hallo.</h3>
+            break;
+        default:
+            <h3>welcome</h3>
+            break;
+    }
+    @{
+        string[] datas = { "abc", "def", "ghi" };
+    }
+    <ul>
+        @for (var i = 0; i < datas.Length; i++)
+        {
+            <li>@datas[i]</li>
+        }
+    </ul>
+
+</body>
+</html>
