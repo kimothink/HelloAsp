@@ -4,13 +4,24 @@ namespace HelloAsp.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public IActionResult Index()
         {
-            string? userid = Request.Query["user_id"];
-            string? age = Request.Query["age"];
-            return "닷넷 오픈채팅방 화이팅!!."+userid+age;
+            return View();
         }
 
+        [HttpPost]
+        public IActionResult Index(string userid,int age)
+        {
+            if (userid == "kimo")
+            {
+
+                return Redirect("/home/test");
+            }
+            else
+            {
+                return View();
+            }
+        }
         public IActionResult Test()
         {
             return View();
